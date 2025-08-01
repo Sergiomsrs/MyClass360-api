@@ -2,7 +2,9 @@ package org.edu.myclass360.dto;
 
 public record UserDTO(
         Long id,
-        String nombre,
+        String name,
+        String lastName,
+        String secondLastName,
         String dni,
         String email,
         String role

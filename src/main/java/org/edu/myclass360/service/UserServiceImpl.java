@@ -44,7 +44,9 @@ public class UserServiceImpl implements UserService{
         }
 
         User user = new User();
-        user.setNombre(dto.nombre());
+        user.setName(dto.name());
+        user.setLastName(dto.lastName());
+        user.setSecondLastName(dto.secondLastName());
         user.setDni(dto.dni());
         user.setEmail(dto.email());
         user.setPassword(passwordEncoder.encode(dto.password()));
@@ -59,7 +61,9 @@ public class UserServiceImpl implements UserService{
     public UserDTO update(Long id, UpdateUserDto dto) {
 
         User user = getActiveUserById(id);
-        user.setNombre(dto.nombre());
+        user.setName(dto.name());
+        user.setLastName(dto.lastName());
+        user.setSecondLastName(dto.secondLastName());
         user.setEmail(dto.email());
         user.setRole(Role.valueOf(dto.role()));
         user.setActive(dto.active());
@@ -85,7 +89,9 @@ public class UserServiceImpl implements UserService{
     private UserDTO toDTO(User user) {
         return new UserDTO(
                 user.getId(),
-                user.getNombre(),
+                user.getName(),
+                user.getLastName(),
+                user.getSecondLastName(),
                 user.getDni(),
                 user.getEmail(),
                 user.getRole().name()
